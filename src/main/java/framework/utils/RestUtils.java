@@ -1,8 +1,8 @@
 package framework.utils;
 
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -11,15 +11,17 @@ public class RestUtils {
         HttpHeaders springHeaders = new HttpHeaders();
         if (headers == null)
             return springHeaders;
-        for (Map.Entry<String, List<String>> entry : headers.entrySet()) {
-            StringBuilder headerValue = new StringBuilder();
-            if (entry.getValue().size() > 0) {
-                for (String hv : entry.getValue())
-                    headerValue.append(hv).append(";");
-                headerValue.deleteCharAt(headerValue.length() - 1);
-            }
-            springHeaders.add(entry.getKey(), headerValue.toString());
-        }
+        for (Map.Entry<String, List<String>> entry : headers.entrySet())
+            springHeaders.put(entry.getKey(), entry.getValue());
         return springHeaders;
+    }
+
+    public static Map<String, List<String>> getLocalHeaders(Map<String, List<String>> headers) {
+        Map<String, List<String>> localHeaders = new HashMap<String, List<String>>();
+        if (headers == null)
+            return localHeaders;
+        for (Map.Entry<String, List<String>> entry : headers.entrySet())
+            localHeaders.put(entry.getKey(), entry.getValue());
+        return localHeaders;
     }
 }

@@ -2,11 +2,10 @@ package sandbox;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import com.sun.org.apache.xpath.internal.SourceTree;
 import framework.enums.RestMethod;
 import framework.rest.RestRequest;
 import framework.rest.RestResponse;
+import framework.rest.models.GithubResponseModel;
 import framework.utils.RestEngine;
 
 import java.io.IOException;
@@ -19,6 +18,11 @@ public class Sandbox {
         String projectName = "spring-framework";
         RestRequest githubRequest = new RestRequest("https://api.github.com/repos/" + companyName + "/" + projectName + "/stats/contributors", RestMethod.GET);
         RestResponse response = RestEngine.sendRequest(githubRequest);
+        GithubResponseModel model = new ObjectMapper().readValue(response.getBody(),GithubResponseModel.class);
+        System.out.println("");
+
+
+        /*
         List<String> contributors = new ArrayList<String>();
         JsonNode rootNode = new ObjectMapper().readTree(response.getBody());
         for (int a = 0; a < rootNode.size(); a++) {
@@ -40,6 +44,6 @@ public class Sandbox {
         System.out.println("list of contributors for project of " + companyName + " named " + projectName + " since Wed, 19 Jul 2017 00:00:00 GMT");
         for (String contributor : contributors)
             System.out.println(contributor);
-        System.out.println(contributors.size());
+        System.out.println(contributors.size());*/
     }
 }
