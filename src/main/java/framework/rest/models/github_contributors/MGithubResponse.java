@@ -1,6 +1,9 @@
-package framework.rest.models.commons;
+package framework.rest.models.github_contributors;
 
-public class MGithubResponse {
+import framework.rest.models.commons.MAuthor;
+import framework.rest.models.commons.MWeek;
+
+class MGithubResponse {
     private Integer total;
     private MAuthor author;
     private MWeek[] weeks;

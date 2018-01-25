@@ -1,9 +1,8 @@
 package sandbox;
 
-import framework.rest.models.MGithubResponseModel;
+import framework.rest.models.github_contributors.MGithubResponseModel;
 import framework.rest.requests.GetContributorsRequest;
 import framework.rest.responses.GetContributorsResponse;
-import framework.utils.RestEngine;
 
 import java.io.IOException;
 

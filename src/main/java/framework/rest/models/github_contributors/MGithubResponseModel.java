@@ -1,7 +1,6 @@
-package framework.rest.models;
+package framework.rest.models.github_contributors;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import framework.rest.models.commons.MGithubResponse;
 
 import java.io.IOException;
 

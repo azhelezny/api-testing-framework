@@ -1,7 +1,7 @@
 package framework.rest.responses;
 
 import framework.rest.RestResponseStructure;
-import framework.rest.models.MGithubResponseModel;
+import framework.rest.models.github_contributors.MGithubResponseModel;
 
 import java.io.IOException;
 
@@ -15,7 +15,7 @@ public class GetContributorsResponse extends BasicResponse {
 
     public MGithubResponseModel getModel() throws IOException {
         if (model == null)
-            model = new MGithubResponseModel(this.getResponse().getBody());
+            model = new MGithubResponseModel(this.response.getBody());
         return model;
     }
 }

@@ -15,9 +15,12 @@ public class RestEngine {
     public static RestResponseStructure sendRequest(RestRequestStructure request) {
         HttpEntity<String> httpEntity = new HttpEntity<String>(request.getBody(), RestUtils.getSpringHeaders(request.getHeaders()));
         ResponseEntity<String> responseEntity = restTemplate.exchange(request.getUrl(), request.getMethod().getHttpMethod(), httpEntity, String.class);
+        
         RestResponseStructure response = new RestResponseStructure();
         response.setCode(responseEntity.getStatusCodeValue());
         response.setBody(responseEntity.getBody());
+        response.setHeaders(RestUtils.getLocalHeaders(responseEntity.getHeaders()));
+        
         return response;
     }
 }
