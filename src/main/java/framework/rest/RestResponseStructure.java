@@ -3,7 +3,7 @@ package framework.rest;
 import java.util.List;
 import java.util.Map;
 
-public class RestResponse {
+public class RestResponseStructure {
     private int code;
     private Map<String,List<String>> headers;
     private String body;

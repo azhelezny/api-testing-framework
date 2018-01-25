@@ -2,21 +2,34 @@ package framework.rest;
 
 import framework.QaException;
 import framework.enums.RestMethod;
+import framework.utils.RestEngine;
+import framework.utils.RestUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-public class RestRequest {
+public class RestRequestStructure {
 
     private String url;
     private RestMethod method;
     private Map<String, List<String>> headers;
     private String body;
 
-    public RestRequest(String url, RestMethod method) {
+    public RestRequestStructure() {
+    }
+
+    public RestRequestStructure(String url, RestMethod method) {
         this.url = url;
+        this.method = method;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public void setMethod(RestMethod method) {
         this.method = method;
     }
 
@@ -57,5 +70,9 @@ public class RestRequest {
 
     public String getBody() {
         return body;
+    }
+
+    public RestResponseStructure executeBasic() {
+        return RestEngine.sendRequest(this);
     }
 }

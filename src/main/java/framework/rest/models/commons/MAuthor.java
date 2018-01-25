@@ -1,8 +1,8 @@
-package framework.rest.models;
+package framework.rest.models.commons;
 
-public class Author {
+public class MAuthor {
     private String login;
-    private String id;
+    private Long id;
     private String avatar_url;
     private String gravatar_id;
     private String url;
@@ -17,7 +17,7 @@ public class Author {
     private String events_url;
     private String received_events_url;
     private String type;
-    private String site_admin;
+    private Boolean site_admin;
 
     public String getLogin() {
         return login;
@@ -27,11 +27,11 @@ public class Author {
         this.login = login;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -147,11 +147,11 @@ public class Author {
         this.type = type;
     }
 
-    public String getSite_admin() {
+    public Boolean getSite_admin() {
         return site_admin;
     }
 
-    public void setSite_admin(String site_admin) {
+    public void setSite_admin(Boolean site_admin) {
         this.site_admin = site_admin;
     }
 }

@@ -1,6 +1,6 @@
-package framework.rest.models;
+package framework.rest.models.commons;
 
-public class Week {
+public class MWeek {
     private long w;
     private long a;
     private long d;
