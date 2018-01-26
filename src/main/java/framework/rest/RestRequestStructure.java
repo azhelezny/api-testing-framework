@@ -1,9 +1,8 @@
 package framework.rest;
 
-import framework.QaException;
+import framework.utils.QaException;
 import framework.enums.RestMethod;
 import framework.utils.RestEngine;
-import framework.utils.RestUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
