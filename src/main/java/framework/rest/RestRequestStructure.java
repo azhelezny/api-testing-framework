@@ -75,4 +75,24 @@ public class RestRequestStructure {
     public RestResponseStructure executeBasic() {
         return RestEngine.sendRequest(this);
     }
+
+    public String getReportMessageHeader() {
+        return String.format("Method: %s URL: %s", this.method.toString(), this.url);
+    }
+
+    public String getReportMessageBody() {
+        StringBuilder sb = new StringBuilder("HEADERS:\n");
+        if (this.headers != null)
+            for (Map.Entry<String, List<String>> entry : this.headers.entrySet()) {
+                sb.append(entry.getKey()).append(": ");
+                for (String listElement : entry.getValue())
+                    sb.append(listElement).append(";");
+                sb.append(sb.length() - 1);
+                sb.append("\n");
+            }
+        sb.append("BODY:\n");
+        if (this.body != null)
+            sb.append(this.body).append("\n");
+        return sb.toString();
+    }
 }
